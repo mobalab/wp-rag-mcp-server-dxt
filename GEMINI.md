@@ -12,7 +12,7 @@ WP RAG MCP Server DXT is a desktop extension (dxt) project that creates a Model 
 **System Architecture:**
 ```
 WordPress (3rd party owned) + WP RAG Plugin <-> API Server (our owned) <-> OpenAI etc. LLM
-                                                        ↓
+                                                        ↓↑
                                                 WP RAG MCP Server (dxt)
 ```
 
