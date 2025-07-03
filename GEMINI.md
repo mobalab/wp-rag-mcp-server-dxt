@@ -1,8 +1,8 @@
-# WP RAG MCP Server
+# WP RAG MCP Server DXT
 
 ## Project Overview
 
-WP RAG MCP Server is a desktop extension (dxt) project that creates a Model Context Protocol (MCP) server as part of the "WP RAG" WordPress plugin ecosystem.
+WP RAG MCP Server DXT is a desktop extension (dxt) project that creates a Model Context Protocol (MCP) server as part of the "WP RAG" WordPress plugin ecosystem.
 
 **Main Features:**
 - Access to vector database containing WordPress post data and their embedding representations
