@@ -19,8 +19,8 @@ const WP_RAG_SITE_ID = process.env.WP_RAG_SITE_ID;
 
 const SearchPostsInputSchema = z.object({
   q: z.string().describe("Search query"),
-  limit: z.number().optional().default(10).describe("Number of results"),
-  score_threshold: z.number().optional().default(0.5).describe("Threshold for score"),
+  limit: z.number().optional().default(4).describe("Number of results"),
+  score_threshold: z.number().optional().default(0.2).describe("Threshold for score"),
 });
 
 server.registerTool(
