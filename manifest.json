@@ -18,7 +18,10 @@
       "args": [
         "${__dirname}/dist/index.js"
       ],
-      "env": {}
+      "env": {
+        "WP_RAG_API_KEY": "${user_config.api_key}",
+        "WP_RAG_SITE_ID": "${user_config.site_id}"
+      }
     }
   },
   "tools": [

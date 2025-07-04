@@ -13,11 +13,11 @@ const options = {
 
 const server = new McpServer(options);
 
-const WP_RAG_API_URL = process.env.WP_RAG_API_URL || "http://localhost:8000";
+const WP_RAG_API_URL = process.env.WP_RAG_API_URL || "https://wp-rag.mobalab.net";
 const WP_RAG_API_KEY = process.env.WP_RAG_API_KEY;
+const WP_RAG_SITE_ID = process.env.WP_RAG_SITE_ID;
 
 const SearchPostsInputSchema = z.object({
-  site_id: z.number().describe("The site identifier"),
   q: z.string().describe("Search query"),
   limit: z.number().optional().default(10).describe("Number of results"),
   score_threshold: z.number().optional().default(0.5).describe("Threshold for score"),
@@ -30,9 +30,9 @@ server.registerTool(
     description: "Search posts from a specific site using a query and optional filters.",
     inputSchema: SearchPostsInputSchema.shape,
   },
-  async ({ site_id, q, limit, score_threshold }) => {
+  async ({ q, limit, score_threshold }) => {
     try {
-      const url = new URL(`${WP_RAG_API_URL}/api/sites/${site_id}/posts/search`);
+      const url = new URL(`${WP_RAG_API_URL}/api/sites/${WP_RAG_SITE_ID}/posts/search`);
       url.searchParams.append("q", q);
       url.searchParams.append("limit", limit.toString());
       url.searchParams.append("score_threshold", score_threshold.toString());
@@ -40,9 +40,10 @@ server.registerTool(
       const headers: Record<string, string> = {
         "Content-Type": "application/json",
       };
-      if (WP_RAG_API_KEY) {
-        headers["X-Api-Key"] = WP_RAG_API_KEY;
+      if (!WP_RAG_API_KEY) {
+        throw new Error('WP_RAG_API_KEY is not set.');
       }
+      headers["X-Api-Key"] = WP_RAG_API_KEY;
 
       const response = await fetch(url.toString(), {
         method: "GET",
