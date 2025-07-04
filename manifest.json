@@ -1,6 +1,6 @@
 {
   "dxt_version": "0.1",
-  "name": "wp-rag-mcp-server-dxt",
+  "name": "wp-rag-mcp-server",
   "display_name": "WP RAG MCP Server Desktop Extension",
   "version": "0.0.1",
   "description": "Model Context Protocol (MCP) server as part of the \"WP RAG\" WordPress plugin ecosystem",
@@ -12,13 +12,16 @@
   "homepage": "https://services.mobalab.net/wp-rag/",
   "server": {
     "type": "node",
-    "entry_point": "server/index.js",
+    "entry_point": "dist/index.js",
     "mcp_config": {
       "command": "node",
       "args": [
-        "${__dirname}/server/index.js"
+        "${__dirname}/dist/index.js"
       ],
-      "env": {}
+      "env": {
+        "WP_RAG_API_KEY": "${user_config.api_key}",
+        "WP_RAG_SITE_ID": "${user_config.site_id}"
+      }
     }
   },
   "tools": [
