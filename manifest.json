@@ -1,0 +1,56 @@
+{
+  "dxt_version": "0.1",
+  "name": "wp-rag-mcp-server-dxt",
+  "display_name": "WP RAG MCP Server Desktop Extension",
+  "version": "0.0.1",
+  "description": "Model Context Protocol (MCP) server as part of the \"WP RAG\" WordPress plugin ecosystem",
+  "author": {
+    "name": "Mobalab, KK",
+    "email": "info@mobalab.net",
+    "url": "https://mobalab.net"
+  },
+  "homepage": "https://services.mobalab.net/wp-rag/",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/server/index.js"
+      ],
+      "env": {}
+    }
+  },
+  "tools": [
+    {
+      "name": "search_posts",
+      "description": "Semantic search with score thresholds"
+    }
+  ],
+  "user_config": {
+    "api_key": {
+      "type": "string",
+      "title": "WP RAG API Key",
+      "description": "WP RAG API Key",
+      "required": true,
+      "sensitive": true
+    },
+    "site_id": {
+      "type": "number",
+      "title": "Site ID on WP RAG",
+      "description": "Site ID on WP RAG",
+      "required": true,
+      "sensitive": false
+    }
+  },
+  "keywords": [
+    "WordPress",
+    "RAG",
+    "vector database"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mobalab/wp-rag-mcp-server-dxt"
+  }
+}
