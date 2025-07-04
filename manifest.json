@@ -12,11 +12,11 @@
   "homepage": "https://services.mobalab.net/wp-rag/",
   "server": {
     "type": "node",
-    "entry_point": "server/index.js",
+    "entry_point": "dist/index.js",
     "mcp_config": {
       "command": "node",
       "args": [
-        "${__dirname}/server/index.js"
+        "${__dirname}/dist/index.js"
       ],
       "env": {}
     }
