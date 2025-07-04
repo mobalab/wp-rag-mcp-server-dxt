@@ -7,7 +7,7 @@ import {
 } from "@modelcontextprotocol/sdk/types.js";
 
 const options = {
-  name: 'wp-rag-mcp-server-dxt',
+  name: 'wp-rag-mcp-server',
   version: '0.0.1',
 };
 

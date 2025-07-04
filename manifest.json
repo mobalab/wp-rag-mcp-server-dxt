@@ -1,6 +1,6 @@
 {
   "dxt_version": "0.1",
-  "name": "wp-rag-mcp-server-dxt",
+  "name": "wp-rag-mcp-server",
   "display_name": "WP RAG MCP Server Desktop Extension",
   "version": "0.0.1",
   "description": "Model Context Protocol (MCP) server as part of the \"WP RAG\" WordPress plugin ecosystem",
